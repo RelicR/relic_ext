@@ -1,0 +1,23 @@
+{
+  "name": "rulic_ext",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Relic_R",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^1.3.0",
+    "@discordjs/rest": "^1.3.0",
+    "discord-api-types": "^0.37.18",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "undici": "^5.12.0",
+    "url": "^0.11.0"
+  }
+}
