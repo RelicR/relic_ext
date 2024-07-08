@@ -352,7 +352,7 @@ client.on('messageCreate', msg => {
 			}
 			msg.channel.send({ 
 				content: `${ hidPing }${ msg.author.toString() }${ otherPing[tempPhrase] }`, 
-				embeds: [uwagaEmbed.setAuthor({ name: `УВАГА` }).setDescription(`${msg.author.toString()}${otherPhrases[tempPhrase]}`).setImage(tempGif)] }).setTimestamp();
+				embeds: [uwagaEmbed.setAuthor({ name: `УВАГА` }).setDescription(`${msg.author.toString()}${otherPhrases[tempPhrase]}`).setImage(tempGif).setTimestamp()] });
 			return 
 		}
 		for(var i in phrases){
