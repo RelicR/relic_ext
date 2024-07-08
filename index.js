@@ -259,7 +259,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`https://relic-ext.onrender.com/`);
+  http.get(`http://relic-ext.onrender.com/`);
 }, 280000);
 
 
