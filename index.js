@@ -255,7 +255,7 @@ client.commands = new Collection();
 const commandsPath = path.join(__dirname, '/src/commands');
 const functionsPath = path.join(__dirname, '/src/functions');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-const functionFiles = fs.readdirSync(functionsPath).filter(file => file.endsWith('.js'));
+//const functionFiles = fs.readdirSync(functionsPath).filter(file => file.endsWith('.js'));
 
 //const channelResp = client.channels.cache.get(channel => channel.id === "1042560078038966296");
 
@@ -267,13 +267,13 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
-for (const file of functionFiles) {
-	const funcPath = path.join(functionsPath, file);
-	const funct = require(funcPath);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
-	client.functions.set(funct.data.name, funct);
-}
+//for (const file of functionFiles) {
+//	const funcPath = path.join(functionsPath, file);
+//	const funct = require(funcPath);
+//	// Set a new item in the Collection
+//	// With the key as the command name and the value as the exported module
+//	client.functions.set(funct.data.name, funct);
+//}
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
