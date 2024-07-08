@@ -253,14 +253,7 @@ var prevMsg;
 const http = require('http');
 const express = require('express');
 const app = express();
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://relic-ext.onrender.com/`);
-}, 280000);
+
 
 
 global.client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
@@ -451,6 +444,14 @@ client.on('guildMemberAdd', async member => {
 
 client.login(token);
 
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://relic-ext.onrender.com/`);
+}, 280000);
 
 
 
