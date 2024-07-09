@@ -202,6 +202,18 @@ const gifs = {
 	],
 	"other": ["https://media1.tenor.com/m/E-u6yuhVldsAAAAC/fireflysegsalarm-star-rail.gif"],
 	"спунч": ["https://media1.tenor.com/m/i3oxc1HaCpMAAAAC/omnom-cut-the-rope.gif"],
+	"сырник": [
+		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
+		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
+		"https://media1.tenor.com/m/gIbE9pZ7raYAAAAC/wataten-watashi-ni-tenshi-ga-maiorita.gif",
+		"https://media1.tenor.com/m/xS09IqCS1e0AAAAC/anime-anime-boy.gif",
+		"https://media1.tenor.com/m/stQ5fJpT4FsAAAAC/luck-and-logic-anime-girl.gif",
+		"https://cdn.discordapp.com/attachments/1259856927865700452/1260158595295608873/Strike-Witches-Charlotte-E-Yeager-Strike-Witches-Character-Strike-Witches-gif-3392747.gif?ex=668e4da5&is=668cfc25&hm=c58ec3fd8584cbf18d86314ad77fb6fc698393bb0167467d4a3b6a426476e4d4&",
+		"https://cdn.discordapp.com/attachments/1259856927865700452/1260158595685814374/kanzashi-eating.gif?ex=668e4da5&is=668cfc25&hm=b629989d6a87cc12144a337ba5c4ecc08e9ee32527c8710e9ceaed979f3b28c2&",
+		"https://media1.tenor.com/m/d9cJHr3KukMAAAAC/cat-kittie.gif",
+		"https://media1.tenor.com/m/ElNeJpOxlbwAAAAC/cat-cute.gif",
+		"https://media1.tenor.com/m/QY_-xKLfDkMAAAAC/munchies.gif",
+	]
 }
 
 const phrases = {
@@ -214,6 +226,7 @@ const phrases = {
 	"щёчка": " целует в щёчку ",
 	"щечка": " целует в щёчку ",
 	"kiss": " слюнявит ",
+	"сырник": " кормит сырным продуктом ",
 }
 const otherPhrases = {
 	"релик": " вызывает сучего <@767304954880720916>",
