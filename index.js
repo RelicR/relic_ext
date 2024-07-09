@@ -322,7 +322,7 @@ const uwagaEmbed = new EmbedBuilder().setColor(0xff0000)
 const spunchEmbed = new EmbedBuilder().setColor(0xa4f50f);
 
 client.on('messageCreate', msg => {
-	if(!msg.author.bot && guilds[msg.guildId.toString()].includes(msg.channelId.toString())){
+	if(!msg.author.id != 1042540656758886530 && guilds[msg.guildId.toString()].includes(msg.channelId.toString())){
 		if (msg.content == '.команды')
 		{
 			msg.reply('```.трахать\n.трусики\n.лапать\n.гладить\n.тык\n.тыкнуть\n.щёчка или .щечка\n.kiss```')
