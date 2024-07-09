@@ -328,7 +328,7 @@ client.on('messageCreate', msg => {
 			msg.reply('```.трахать\n.трусики\n.лапать\n.гладить\n.тык\n.тыкнуть\n.щёчка или .щечка\n.kiss```')
 			return 
 		}
-		if (otherPhrases[msg.content.replace('.', '')] != undefined)
+		if (otherPhrases[msg.content.replace('.', '')] != undefined && msg.content.startsWith('.'))
 		{
 			tempPhrase = msg.content.replace('.', '')
 			tempGif = tempPhrase == "спунч" ? gifs[tempPhrase][0] : gifs["other"][0];
