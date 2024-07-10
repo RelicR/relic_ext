@@ -443,12 +443,12 @@ client.on('messageCreate', msg => {
 // );
 
 
-client.on('guildMemberAdd', async member => {
-	console.log(member.guild.roles.cache.find());
-	console.log(`~~~~~~\nNew user is joined!\nUser: ${member.id}\n~~~~~~`)
-	member.guild.channels.get('channelID').send(`Добро пожаловать в чистилище, <@${member.id}>!`);
-	member.roles.add(member.guild.roles.cache.get("995963494186881045"));
-});
+//client.on('guildMemberAdd', async member => {
+//	console.log(member.guild.roles.cache.find());
+//	console.log(`~~~~~~\nNew user is joined!\nUser: ${member.id}\n~~~~~~`)
+//	member.guild.channels.get('channelID').send(`Добро пожаловать в чистилище, <@${member.id}>!`);
+//	member.roles.add(member.guild.roles.cache.get("995963494186881045"));
+//});
 
 (async () => {
 	console.log(`${currDate}`);
