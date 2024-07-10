@@ -337,6 +337,7 @@ client.on('messageCreate', msg => {
 		{
 			tempPhrase = msg.content.replace('.', '')
 			tempGif = tempPhrase == "спунч" ? gifs[tempPhrase][0] : gifs["other"][0];
+			tempGif = tempPhrase == "лизочка" ? gifs[tempPhrase][0] : gifs["other"][0];
 			toLog(msg.author + ' ' + msg.author.username, msg.content);
 			if (tempPhrase == "спунч")
 			{
