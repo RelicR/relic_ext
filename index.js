@@ -328,6 +328,7 @@ client.on('messageCreate', msg => {
 			if (tempPhrase == i || aliases[i][tempPhrase] != undefined)
 			{
 				tempPhrase = i
+				break
 			}
 		}
 		if (otherPhrases[tempPhrase] != undefined)
