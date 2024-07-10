@@ -2,37 +2,15 @@ function randDiap(min, max)
 {
 	return Math.floor(Math.random() * (max - min) + min);
 }
-//const replies = require('./responds.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const url = require('node:url');
 const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const { token } = process.env.DISCORD_TOKEN;
 const { fileURLToPath } = require('node:url');
-//const { triggers } = require('./responds.js');
 
 const msgMention = /<@\d+>/
 const hidPing = "  ||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| _ _ _ _ _ _ "
-// const gifs = {
-// 	"трахнуть": [
-// 		"https://media1.tenor.com/m/dw62qqVHQ4cAAAAC/saber-panting.gif",
-// 		"https://nanaone.net/wp-content/uploads/2014/01/yozakura04_news.gif",
-// 	],
-// 	"трусики": [
-// 		"https://media1.tenor.com/m/_EkPfYzOtPAAAAAC/anime-remove-panty.gif", 
-// 		"https://media1.tenor.com/m/Gj1hI8jgZjMAAAAC/panties-skirt.gif",
-// 		"https://camo-v3.shikimori.one/6163a163d4028dc8ea95152554770cd5f9a9ac0a?url=http%3A%2F%2Forig12.deviantart.net%2F4432%2Ff%2F2014%2F343%2Fe%2F3%2Fnisekoi_anime_tachibana_marika_anime_gif_1239644_by_ririchiiyo-d89bcg5.gif",
-// 		"https://otkritkis.com/wp-content/uploads/2022/07/rfyrd.gif"
-// 	],
-// 	"лапать": [
-// 		"https://media1.tenor.com/m/8RNv7Ip6GlAAAAAd/squirm-thighs.gif", 
-// 		"https://media1.tenor.com/m/lPSzkCfEcPEAAAAC/nyaruko-cthuko.gif", 
-// 		"https://media1.tenor.com/m/koqhPaVu1NEAAAAC/anime-touch.gif",
-// 		"https://media1.tenor.com/m/MS7x-A5SsNkAAAAC/boob-poke.gif",
-// 		"https://media1.tenor.com/m/N4J1kGAh_x4AAAAC/seiken-nope.gif",
-// 		"https://ic.pics.livejournal.com/chidora/16752828/6458/6458_600.gif"
-// 	],
-// };
 
 const gifs = {
 	"трахать": [
@@ -205,6 +183,8 @@ const gifs = {
 	"лизочка": [
 		"https://cdn.discordapp.com/attachments/1259856927865700452/1260627390510530601/mefchik2.gif?ex=6690023f&is=668eb0bf&hm=50f4fe2c3ce97cfc83f41c8952e0d525e7c4104608370226243b2f864a3e1bdf&"
 	],
+	"софа": ["https://media1.tenor.com/m/F4A5RHNrTIEAAAAC/zdarova.gif"],
+	"хахатунчик": ["https://media1.tenor.com/m/rRQFGTU6FAMAAAAC/mercedes.gif"],
 	"сырник": [
 		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
 		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
@@ -244,6 +224,14 @@ const otherPing = {
 	"папуг": "<@293031501514276864>",
 	"спунч": "<@561514969716359169>",
 	"лизочка": "<@1023724564330578013>",
+}
+const aliases = {
+	"релик": ["сучий", "брелок", "брелик"],
+	"опостал": ["апостал", "опездал"],
+	"папуг": ["папук"],
+	"спунч": ["чнапс", "чнупс"],
+	"лизочка": ["мефчик", "лидочка", "лида"],
+	"софа": ["соня", "софик"]
 }
 const triggers = {
     //"привет": "Доброго времени суток, господин!",
@@ -328,16 +316,23 @@ const spunchEmbed = new EmbedBuilder().setColor(0xa4f50f);
 
 client.on('messageCreate', msg => {
 	if(!msg.author.id != 1042540656758886530 && guilds[msg.guildId.toString()].includes(msg.channelId.toString())){
+		if(!msg.content.startsWith('.')){return}
+		tempPhrase = msg.content.replace('.', '')
 		if (msg.content == '.команды')
 		{
 			msg.reply('```.трахать\n.трусики\n.лапать\n.гладить\n.тык\n.тыкнуть\n.щёчка или .щечка\n.kiss```')
 			return 
 		}
-		if (otherPhrases[msg.content.replace('.', '')] != undefined && msg.content.startsWith('.'))
+		for(var i in aliases)
 		{
-			tempPhrase = msg.content.replace('.', '')
-			tempGif = tempPhrase == "спунч" ? gifs[tempPhrase][0] : gifs["other"][0];
-			tempGif = tempPhrase == "лизочка" ? gifs[tempPhrase][0] : gifs["other"][0];
+			if (tempPhrase == i || aliases[i][tempPhrase] != undefined)
+			{
+				tempPhrase = i
+			}
+		}
+		if (otherPhrases[tempPhrase] != undefined)
+		{
+			tempGif = gifs[tempPhrase] != undefined ? gifs[tempPhrase][0] : gifs["other"][0];
 			toLog(msg.author + ' ' + msg.author.username, msg.content);
 			if (tempPhrase == "спунч")
 			{
