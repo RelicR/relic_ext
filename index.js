@@ -202,6 +202,9 @@ const gifs = {
 	],
 	"other": ["https://media1.tenor.com/m/E-u6yuhVldsAAAAC/fireflysegsalarm-star-rail.gif"],
 	"спунч": ["https://media1.tenor.com/m/i3oxc1HaCpMAAAAC/omnom-cut-the-rope.gif"],
+	"лизочка": [
+		"https://cdn.discordapp.com/attachments/1259856927865700452/1260627390510530601/mefchik2.gif?ex=6690023f&is=668eb0bf&hm=50f4fe2c3ce97cfc83f41c8952e0d525e7c4104608370226243b2f864a3e1bdf&"
+	],
 	"сырник": [
 		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
 		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
@@ -231,14 +234,16 @@ const phrases = {
 const otherPhrases = {
 	"релик": " вызывает сучего <@767304954880720916>",
 	"опостал": " вызывает спортика <@755654273173291008>",
-	"папуг": " вызывает любителя порогов <@293031501514276864>",
+	"папуг": " вызывает пернатого <@293031501514276864>",
 	"спунч": " вызывает <:spunch:1162380652826599534> <@561514969716359169>",
+	"лизочка": " вызывает мефчика <@1023724564330578013>",
 }
 const otherPing = {
 	"релик": "<@767304954880720916>",
 	"опостал": "<@755654273173291008>",
 	"папуг": "<@293031501514276864>",
 	"спунч": "<@561514969716359169>",
+	"лизочка": "<@1023724564330578013>",
 }
 const triggers = {
     //"привет": "Доброго времени суток, господин!",
