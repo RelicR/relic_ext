@@ -184,7 +184,10 @@ const gifs = {
 		"https://cdn.discordapp.com/attachments/1259856927865700452/1260627390510530601/mefchik2.gif?ex=6690023f&is=668eb0bf&hm=50f4fe2c3ce97cfc83f41c8952e0d525e7c4104608370226243b2f864a3e1bdf&"
 	],
 	"софа": ["https://media1.tenor.com/m/F4A5RHNrTIEAAAAC/zdarova.gif"],
-	"хахатунчик": ["https://media1.tenor.com/m/rRQFGTU6FAMAAAAC/mercedes.gif"],
+	"хахатунчик": [
+		"https://media1.tenor.com/m/ac_WexNYzXIAAAAC/burnout-mercedes-benz.gif",
+		"https://media1.tenor.com/m/wxlgthKz_gYAAAAC/amg-cls-63-night-drive-amg.gif",
+	],
 	"сырник": [
 		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
 		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
@@ -338,7 +341,7 @@ client.on('messageCreate', msg => {
 		}
 		if (otherPhrases[tempPhrase] != undefined)
 		{
-			tempGif = gifs[tempPhrase] != undefined ? gifs[tempPhrase][0] : gifs["other"][0];
+			tempGif = gifs[tempPhrase] != undefined ? gifs[tempPhrase][randDiap(0, gifs[tempPhrase].length)] : gifs["other"][0];
 			toLog(msg.author + ' ' + msg.author.username, msg.content);
 			if (tempPhrase == "спунч")
 			{
