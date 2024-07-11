@@ -183,7 +183,7 @@ const gifs = {
 	"лизочка": [
 		"https://cdn.discordapp.com/attachments/1259856927865700452/1260627390510530601/mefchik2.gif?ex=6690023f&is=668eb0bf&hm=50f4fe2c3ce97cfc83f41c8952e0d525e7c4104608370226243b2f864a3e1bdf&"
 	],
-	"софа": ["https://media1.tenor.com/m/F4A5RHNrTIEAAAAC/zdarova.gif"],
+	"софа": ["https://cdn.discordapp.com/attachments/1259856927865700452/1260970127243874408/sofa.gif?ex=66914172&is=668feff2&hm=07baba1ca6b4484a17147b5b239d9db48f3e88d568422430e56d92d71c558ebc&"],
 	"хахатунчик": [
 		"https://media1.tenor.com/m/ac_WexNYzXIAAAAC/burnout-mercedes-benz.gif",
 		"https://media1.tenor.com/m/wxlgthKz_gYAAAAC/amg-cls-63-night-drive-amg.gif",
@@ -238,22 +238,9 @@ const aliases = {
 	"папуг": ["папук", "ром4ик"],
 	"спунч": ["чнапс", "чнупс"],
 	"лизочка": ["мефчик", "лидочка", "лида", "лиза"],
-	"софа": ["соня", "софик"],
+	"софа": ["соня", "софик", "safrol", "сафрол"],
 	"хахатунчик": ["владос", "владик"],
 }
-const triggers = {
-    //"привет": "Доброго времени суток, господин!",
-    "спокойной ночи": "Прекрасной ночи, мой господин! <a:RRE_RaidenNyaah:1046076468129693747>",
-	"сладких снов": "Прекрасной ночи, мой господин! <a:RRE_RaidenNyaah:1046076468129693747>",
-    "мур": "Мяу <:RRE_NekoAdmin:1042932728582123572>",
-    "мяу": "Мр-р-р-р <:RRE_NekoAdmin:1042932728582123572>",
-    "лох": "Не обзывайся!",
-	"<@1042540656758886530>": "Что такое, сладкий?",
-	"мама": "Да, мой сладкий котёночек?",
-	"<@1042540656758886530> мама": "Да, мой сладкий котёночек?",
-	"а": "Хуй на <:RRE_Mari:1042497825310785576>",
-
-}; //"а": "Хуй на <:RRE_Mari:1042497825310785576>",
 const guilds = {
 	"979816565174333480": ["979816565174333483"],
 	"1042560078038966293": ["1042560078038966296"],
@@ -269,25 +256,12 @@ client.commands = new Collection();
 const commandsPath = path.join(__dirname, '/src/commands');
 const functionsPath = path.join(__dirname, '/src/functions');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-//const functionFiles = fs.readdirSync(functionsPath).filter(file => file.endsWith('.js'));
-
-//const channelResp = client.channels.cache.get(channel => channel.id === "1042560078038966296");
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
 	client.commands.set(command.data.name, command);
 }
-
-//for (const file of functionFiles) {
-//	const funcPath = path.join(functionsPath, file);
-//	const funct = require(funcPath);
-//	// Set a new item in the Collection
-//	// With the key as the command name and the value as the exported module
-//	client.functions.set(funct.data.name, funct);
-//}
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
@@ -387,72 +361,6 @@ client.on('messageCreate', msg => {
 }
 );
 
-// client.on('messageCreate', msg => {
-// 	if(!msg.author.bot){
-// 		// console.log('123');
-// 		// console.log(msg.mentions.repliedUser.id);
-// 		for(var i in triggers){
-// 			if (msg.type == 19 && msg.mentions.repliedUser.id == '1042540656758886530'){
-// 			//else if (msg.content.toLowerCase().toString().startsWith('привет') && msg.type == 'REPLY'){
-// 				//if (msg.author.toString() == "<@764949316703223838>") msg.reply("Доброго времени суток, госпожа!");
-// 				//else prevMsg = msg.reply("Доброго времени суток, господин!");
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, "Доброго времени суток, господин!");
-// 				msg.channel.send({ content: `${ hidPing }<@${ msg.author.id }>`, embeds: [exampleEmbed.setAuthor({ name: 'Трахнуть' })] });
-// 				break;
-// 			}
-// 			else if(msg.content.toLowerCase().toString().startsWith('123')){
-// 				prevMsg = msg.reply(`321`);
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, '123');
-// 				break;
-// 			}
-// 			else if(msg.content.toLowerCase().toString().startsWith(i)){
-// 				prevMsg = msg.reply(`${triggers[i]}`);
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, triggers[i]);
-// 				break;
-// 			}
-			
-// 		}
-// 	}
-// }
-// );
-
-// client.on('messageCreate', msg => {
-// 	if(!msg.author.bot){
-// 		// console.log('123');
-// 		// console.log(msg.mentions.repliedUser.id);
-// 		for(var i in triggers){
-// 			if (msg.type == 19 && msg.mentions.repliedUser.id == '1042540656758886530'){
-// 			//else if (msg.content.toLowerCase().toString().startsWith('привет') && msg.type == 'REPLY'){
-// 				//if (msg.author.toString() == "<@764949316703223838>") msg.reply("Доброго времени суток, госпожа!");
-// 				//else prevMsg = msg.reply("Доброго времени суток, господин!");
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, "Доброго времени суток, господин!");
-// 				msg.channel.send({ content: `${ hidPing }<@${ msg.author.id }>`, embeds: [exampleEmbed.setAuthor({ name: 'Трахнуть' })] });
-// 				break;
-// 			}
-// 			else if(msg.content.toLowerCase().toString().startsWith('123')){
-// 				prevMsg = msg.reply(`321`);
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, '123');
-// 				break;
-// 			}
-// 			else if(msg.content.toLowerCase().toString().startsWith(i)){
-// 				prevMsg = msg.reply(`${triggers[i]}`);
-// 				toLog(msg.author + ' ' + msg.author.username, msg.content, triggers[i]);
-// 				break;
-// 			}
-			
-// 		}
-// 	}
-// }
-// );
-
-
-//client.on('guildMemberAdd', async member => {
-//	console.log(member.guild.roles.cache.find());
-//	console.log(`~~~~~~\nNew user is joined!\nUser: ${member.id}\n~~~~~~`)
-//	member.guild.channels.get('channelID').send(`Добро пожаловать в чистилище, <@${member.id}>!`);
-//	member.roles.add(member.guild.roles.cache.get("995963494186881045"));
-//});
-
 (async () => {
 	console.log(`${currDate}`);
 	currDate = Date();
@@ -484,47 +392,3 @@ setInterval(() => {
 	});
   }, 280000);
 
-
-
-
-
-
-
-// client.on('messageCreate', msg => {
-// 	// You can view the msg object here with console.log(msg)
-// 	//console.log(triggers[0]);
-// 	for(var i in triggers){
-// 		cont = msg.content.toLowerCase().split(/[.,!,? ]/);
-// 		if(cont.toString().indexOf(i.split(/[.,!,? ]/)) != -1 && !msg.author.bot){
-// 			console.log(`---------\n${new Date()} A new message detected! "${msg.content}"\nUser: ${msg.author}\nReply: ${triggers[i]}\n---------`);
-// 			if (triggers[i] == "Хуй на <:RRE_Mari:1042497825310785576>"){
-// 				if (cont.indexOf("а") != -1 && cont.length == 1){
-// 					msg.reply(`${triggers[i]}`);
-// 				}
-// 			}
-// 			else if ((i.includes("мама") && i.includes("<@1042540656758886530>")) && msg.author.toString() == "<@952072802083667988>"){
-// 				msg.reply(`${triggers[i]}`);
-// 			}
-// 			else if ((i.includes("мама") && i.includes("<@1042540656758886530>")) && msg.author.toString() != "<@952072802083667988>"){
-// 				msg.reply(`Я не твоя мама...`);
-// 			}
-// 			else{
-// 				if (triggers[i] == "Доброго времени суток, господин!"){
-// 					if (msg.author.toString() == "<@764949316703223838>") msg.reply("Доброго времени суток, госпожа!");
-// 					else msg.reply("Доброго времени суток, господин!");
-// 					console.log(`${msg.author == "<@764949316703223838>"}`);
-// 				}
-// 				else msg.reply(`${triggers[i]}`);
-// 			}
-// 		};
-// 	};
-// });
-
-
-
-//client.on('messageCreate', msg => {
-//	// You can view the msg object here with console.log(msg)
-//	 if (msg.content === 'Hello') {
-//	   msg.reply(`Hello ${msg.author.username}`);
-//	 }
-//});
