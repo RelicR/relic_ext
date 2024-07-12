@@ -188,6 +188,7 @@ const gifs = {
 		"https://media1.tenor.com/m/ac_WexNYzXIAAAAC/burnout-mercedes-benz.gif",
 		"https://media1.tenor.com/m/wxlgthKz_gYAAAAC/amg-cls-63-night-drive-amg.gif",
 	],
+	"кощк": ["https://media1.tenor.com/m/kqIsWZcSeDUAAAAC/everyone-cute.gif"],
 	"сырник": [
 		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
 		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
@@ -222,6 +223,7 @@ const otherPhrases = {
 	"лизочка": " вызывает мефчика <@1023724564330578013>",
 	"софа": " вызывает софочку <@1060999684300210266>",
 	"хахатунчик": " вызывает бизнес-класс <@665105418824974336>",
+	"кощк": " вызывает <:10671gagaga:1261101437191065652> <@952072802083667988>",
 }
 const otherPing = {
 	"релик": "<@767304954880720916>",
@@ -231,15 +233,17 @@ const otherPing = {
 	"лизочка": "<@1023724564330578013>",
 	"софа": "<@1060999684300210266>",
 	"хахатунчик": "<@665105418824974336>",
+	"кощк": "<@952072802083667988>",
 }
 const aliases = {
 	"релик": ["сучий", "брелок", "брелик"],
 	"опостал": ["апостал", "опездал"],
-	"папуг": ["папук", "ром4ик"],
+	"папуг": ["папук", "ром4ик", "ром4iк", "ром4ik"],
 	"спунч": ["чнапс", "чнупс"],
 	"лизочка": ["мефчик", "лидочка", "лида", "лиза"],
 	"софа": ["соня", "софик", "safrol", "сафрол"],
 	"хахатунчик": ["владос", "владик"],
+	"кощк": ["кощьк", "кiт", "котяра"],
 }
 const guilds = {
 	"979816565174333480": ["979816565174333483"],
@@ -368,13 +372,41 @@ client.on('messageCreate', msg => {
 
 client.login(token);
 
+function sendMessage(tempGuild, tempChannel, tempMessage)
+{
+	try
+	{
+		targetC = client.guilds.cache.get(tempGuild).channels.cache.get(tempChannel)
+		targetC.send(tempMessage)
+		console.log("Message was sent successfully")
+		return 
+	}
+	catch (error)
+	{
+		console.log(`Failed sending the message\n${error}`)
+		return
+	}
+}
+
 const http = require('http');
 const express = require('express');
 const app = express();
+app.use(express.json())
+app.set('port', process.env.PORT)
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
+  console.log(request.body)
   response.sendStatus(200);
 });
+app.post("/admin", (request, response) => {
+	console.log(Date.now() + " Post Received");
+	tempBody = request.body
+	if(tempBody["secret"] == process.env.SECRET)
+	{
+		sendMessage(tempBody["guild"], tempBody["channel"], tempBody["message"])
+	}
+	response.sendStatus(200);
+})
 app.listen(process.env.PORT);
 // setInterval(() => {
 //   http.get(`http://127.0.0.1:${process.env.PORT}/`);
