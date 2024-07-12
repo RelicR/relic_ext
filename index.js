@@ -401,8 +401,10 @@ app.get("/", (request, response) => {
 app.post("/admin", (request, response) => {
 	console.log(Date.now() + " Post Received");
 	tempBody = request.body
+	console.log(tempBody)
 	if(tempBody["secret"] == process.env.SECRET)
 	{
+		console.log("Secret passed")
 		sendMessage(tempBody["guild"], tempBody["channel"], tempBody["message"])
 	}
 	response.sendStatus(200);
