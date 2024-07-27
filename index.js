@@ -189,7 +189,7 @@ const gifs = {
 		"https://media1.tenor.com/m/wxlgthKz_gYAAAAC/amg-cls-63-night-drive-amg.gif",
 	],
 	"кощк": ["https://media1.tenor.com/m/kqIsWZcSeDUAAAAC/everyone-cute.gif"],
-	"хехобара": ["https://cdn.discordapp.com/attachments/1259856927865700452/1263957158228398080/1.gif?ex=669c1f55&is=669acdd5&hm=a8daaf5e4cbe6aab96c8dca4fd077cf4bf45e0433bd1c71a6580ddb41e148727&"],
+	"хехобара": ["https://media1.tenor.com/m/_SYXFSgsQNIAAAAd/агде-понасенков.gif"],
 	"сырник": [
 		"https://media1.tenor.com/m/qi8MqDKmpl8AAAAC/lycoris-recoil-chisato.gif",
 		"https://media.tenor.com/RVU4H9rRmpcAAAAC/kubo-nagisa-anime.gif",
