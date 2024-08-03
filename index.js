@@ -162,7 +162,6 @@ const gifs = {
 		'https://i.imgur.com/TmHKOvP.gif',
 		'https://i.imgur.com/svxhjNy.gif',
 		'https://i.imgur.com/VdDn2gz.gif',
-		'https://i.imgur.com/Z6fAorC.gif',
 		'https://i.imgur.com/8QZYhXO.gif',
 		'https://i.imgur.com/qKOixBu.gif',
 		'https://i.imgur.com/mVvKhAu.gif',
